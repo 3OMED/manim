@@ -42,7 +42,6 @@ if TYPE_CHECKING:
     )
 
 __all__ = [
-    "LegacyShaded",
     "Material",
     "Payload",
     "RCameraView",
@@ -105,17 +104,7 @@ class RColorField(NamedTuple):
 RPaint = RSolid | RLinearGradient | RColorField
 
 
-class LegacyShaded(NamedTuple):
-    """The shading of mobjects with ``shade_in_3d``: the stop colors of the path's
-    paint, darkened or lightened towards the camera's light at the path's first and
-    last corner, as :func:`~.get_shaded_rgb` does.
-
-    A renderer whose camera has no light draws the paint as it is. This material is
-    provisional; it goes when vector mobjects get lit materials.
-    """
-
-
-Material = Unlit | Pbr | LegacyShaded
+Material = Unlit | Pbr
 
 
 class Stroke(NamedTuple):
